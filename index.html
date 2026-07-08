@@ -668,7 +668,32 @@
       .newsletter-input { border-right: 1.5px solid var(--black); border-bottom: none; }
       footer { flex-direction: column; align-items: flex-start; }
       .countdown { gap: 1rem; }
-    }
+    }.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--black);
+  color: var(--white);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  cursor: crosshair;
+  z-index: 200;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+}
+
+.back-to-top:hover {
+  background: var(--flieder-dark);
+}
   </style>
 </head>
 <body>
@@ -1006,6 +1031,11 @@
       const y = (e.clientY / window.innerHeight - 0.5) * 20;
       circle.style.transform = `translate(${x}px, ${y}px)`;
     });
+    const backTop = document.querySelector('.back-to-top');
+window.addEventListener('scroll', () => {
+  backTop.classList.toggle('visible', window.scrollY > 400);
+});
   </script>
+  <a href="#" class="back-to-top">↑</a>
 </body>
 </html>
