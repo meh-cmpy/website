@@ -1031,10 +1031,10 @@
       const y = (e.clientY / window.innerHeight - 0.5) * 20;
       circle.style.transform = `translate(${x}px, ${y}px)`;
     });
-    const backTop = document.querySelector('.back-to-top');
-window.addEventListener('scroll', () => {
-  backTop.classList.toggle('visible', window.scrollY > 400);
-});
+    window.addEventListener('scroll', () => {
+      const backTop = document.querySelector('.back-to-top');
+      if (backTop) backTop.classList.toggle('visible', window.scrollY > 400);
+    });
   </script>
   <a href="#" class="back-to-top">↑</a>
 </body>
