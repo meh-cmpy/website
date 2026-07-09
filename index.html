@@ -856,9 +856,13 @@
 }
 
 @media (max-width: 768px) {
-  .product-row { grid-template-columns: 1fr; }
+  .product-row { grid-template-columns: 1fr 1fr; }
   .zfg-grid { grid-template-columns: 1fr 1fr; }
-  .postcard-trigger { display: none; }
+  .zfg-row { grid-template-columns: 1fr 1fr; }
+  .product-grid { grid-template-columns: 1fr 1fr; }
+  .postcard-trigger { display: block; right: -220px; bottom: 1.5rem; top: auto; transform: none; }
+  .postcard-trigger.visible { right: 0.5rem; }
+  .postcard-bubble img { width: 110px; }
 }
   </style>
 </head>
@@ -945,9 +949,9 @@
           </div>
         </div>
         <!-- XANAX WHITE -->
-        <div class="product-card" style="cursor:pointer;" onclick="window.open('https://www.der-onlineshop.com/products/xanax-for-the-panic-clean-white','_blank')">
+        <div class="product-card" style="cursor:pointer; position:relative; overflow:hidden;" onclick="window.open('https://www.der-onlineshop.com/products/xanax-for-the-panic-clean-white','_blank')">
           <span class="product-label">New</span>
-          <div class="product-img-placeholder"><span class="placeholder-text">white</span></div>
+          <img src="Xanax clean white back nach wirkung.jpg" alt="Xanax Clean White" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
           <div class="product-overlay">
             <p class="product-overlay-name">Xanax Clean White</p>
             <p class="product-overlay-desc">ja, ich denke schon.</p>
@@ -956,9 +960,9 @@
           </div>
         </div>
         <!-- XANAX PURPLE -->
-        <div class="product-card" style="cursor:pointer;" onclick="window.open('https://www.der-onlineshop.com/products/xanax-for-the-panic-violet','_blank')">
+        <div class="product-card" style="cursor:pointer; position:relative; overflow:hidden;" onclick="window.open('https://www.der-onlineshop.com/products/xanax-for-the-panic-violet','_blank')">
           <span class="product-label">New</span>
-          <div class="product-img-placeholder"><span class="placeholder-text">flieder</span></div>
+          <img src="Xanax purple back nach wirkung.jpg" alt="Xanax Purple" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
           <div class="product-overlay">
             <p class="product-overlay-name">Xanax Purple</p>
             <p class="product-overlay-desc">ton in ton. fast unsichtbar. fast.</p>
@@ -1006,15 +1010,6 @@
           </div>
         </div>
         <div class="zfg-card">
-          <img src="zero fucks given cap in pastel pink front.png" alt="Cap Pastel Pink">
-          <div class="product-overlay">
-            <p class="product-overlay-name">Cap Pastel Pink</p>
-            <p class="product-overlay-desc">ja, möglich.</p>
-            <p class="product-overlay-price">30 €</p>
-            <a href="https://www.der-onlineshop.com/products/zero-fucks-given-cap-pastel-pink" target="_blank" class="product-overlay-btn">In den Shop →</a>
-          </div>
-        </div>
-        <div class="zfg-card">
           <img src="zero fucks given cap in pastel mint front.png" alt="Cap Pastel Mint">
           <div class="product-overlay">
             <p class="product-overlay-name">Cap Pastel Mint</p>
@@ -1030,6 +1025,15 @@
             <p class="product-overlay-desc">ja, möglich.</p>
             <p class="product-overlay-price">30 €</p>
             <a href="https://www.der-onlineshop.com/products/zero-fucks-given-cap-pastel-blue" target="_blank" class="product-overlay-btn">In den Shop →</a>
+          </div>
+        </div>
+        <div class="zfg-card">
+          <img src="zero fucks given cap in pastel pink front.png" alt="Cap Pastel Pink">
+          <div class="product-overlay">
+            <p class="product-overlay-name">Cap Pastel Pink</p>
+            <p class="product-overlay-desc">ja, möglich.</p>
+            <p class="product-overlay-price">30 €</p>
+            <a href="https://www.der-onlineshop.com/products/zero-fucks-given-cap-pastel-pink" target="_blank" class="product-overlay-btn">In den Shop →</a>
           </div>
         </div>
       </div>
@@ -1274,6 +1278,14 @@
       if (postcard) postcard.classList.toggle('visible', window.scrollY > 800);
     });
   </script>
+  <div class="postcard-trigger" id="postcardTrigger">
+    <div class="postcard-bubble" onclick="window.open('https://www.der-onlineshop.com/products/pille-palle-gum-postkarte','_blank')">
+      <button class="postcard-close" onclick="event.stopPropagation(); document.getElementById('postcardTrigger').style.display='none'">✕</button>
+      <img src="Pille Palle Gum Postkarte.png" alt="Pille Palle Gum Postkarte">
+      <p class="postcard-label">coole postkarte gefällig?</p>
+    </div>
+  </div>
+
   <a href="#" class="back-to-top">↑</a>
 </body>
 </html>
