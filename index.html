@@ -694,6 +694,172 @@
 .back-to-top:hover {
   background: var(--flieder-dark);
 }
+
+/* PRODUCT IMAGE CARDS */
+.product-card-img {
+  position: relative;
+  overflow: hidden;
+  cursor: crosshair;
+  background: #f0e8f8;
+}
+.product-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.product-card-img:hover img { transform: scale(1.03); }
+.product-card-img .product-overlay { display: flex; }
+
+/* PRODUCT ROW - images in one row */
+.product-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-bottom: 2px;
+}
+.product-row-single {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-bottom: 2px;
+}
+
+/* CAPS IN ARBEIT */
+.caps-teaser {
+  background: var(--flieder-light);
+  padding: 3rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2px;
+}
+.caps-teaser-text {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--flieder-dark);
+}
+.caps-teaser-sub {
+  font-size: 0.7rem;
+  color: var(--grey);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ZERO FUCKS SECTION */
+.zfg-section {
+  padding: 6rem 2rem;
+  background: var(--black);
+}
+.zfg-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.zfg-header {
+  margin-bottom: 3rem;
+}
+.zfg-header .section-label {
+  color: var(--flieder);
+  margin-bottom: 0.75rem;
+}
+.zfg-header h2 {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.05;
+}
+.zfg-header p {
+  font-size: 0.75rem;
+  color: #888884;
+  margin-top: 0.75rem;
+  font-style: italic;
+}
+.zfg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2px;
+}
+.zfg-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+.zfg-row .zfg-card {
+  aspect-ratio: 1/1;
+}
+.zfg-card {
+  position: relative;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  cursor: crosshair;
+}
+.zfg-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.zfg-card:hover img { transform: scale(1.03); }
+.zfg-card .product-overlay { display: flex; }
+.zfg-card .product-overlay-price { color: var(--flieder); }
+.zfg-card .product-overlay-btn { border-bottom: 1px solid var(--flieder); }
+
+/* POSTCARD POPUP */
+.postcard-trigger {
+  position: fixed;
+  top: 50%;
+  right: -320px;
+  transform: translateY(-50%);
+  z-index: 500;
+  transition: right 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.postcard-trigger.visible { right: 1.5rem; }
+.postcard-bubble {
+  background: var(--white);
+  border: 2px solid var(--black);
+  padding: 0.5rem;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 4px 4px 0 var(--black);
+}
+.postcard-bubble img {
+  width: 160px;
+  display: block;
+}
+.postcard-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey);
+  text-align: center;
+  margin-top: 0.4rem;
+}
+.postcard-close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 22px;
+  height: 22px;
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .product-row { grid-template-columns: 1fr; }
+  .zfg-grid { grid-template-columns: 1fr 1fr; }
+  .postcard-trigger { display: none; }
+}
   </style>
 </head>
 <body>
@@ -762,45 +928,108 @@
         </div>
         <div class="countdown" id="countdown001"></div>
       </div>
+
+      <!-- ALLE PRODUKTE TOP -->
+      <div style="text-align:right; margin-bottom:1.5rem;">
+        <a href="https://www.der-onlineshop.com/collections/vendors?q=why%20even%20try" target="_blank" class="btn-ghost" style="font-size:0.65rem;">alle produkte →</a>
+      </div>
+
       <div class="product-grid">
+        <!-- CAPS -->
         <div class="product-card">
-          <span class="product-label">New</span>
           <div class="product-img-placeholder"><span class="placeholder-text">cap</span></div>
           <div class="product-overlay">
-            <p class="product-overlay-name">Cap</p>
-            <p class="product-overlay-desc">ja, möglich.</p>
-            <p class="product-overlay-price">30 €</p>
-            <a href="#" class="product-overlay-btn">In den Shop →</a>
+            <p class="product-overlay-name">Caps</p>
+            <p class="product-overlay-desc">in arbeit.</p>
+            <p class="product-overlay-price" style="color:var(--flieder);">30 €</p>
           </div>
         </div>
-        <div class="product-card">
+        <!-- XANAX WHITE -->
+        <div class="product-card" style="cursor:pointer;" onclick="window.open('https://www.der-onlineshop.com/products/xanax-for-the-panic-clean-white','_blank')">
           <span class="product-label">New</span>
-          <div class="product-img-placeholder"><span class="placeholder-text">tee</span></div>
+          <div class="product-img-placeholder"><span class="placeholder-text">white</span></div>
           <div class="product-overlay">
-            <p class="product-overlay-name">T-Shirt</p>
+            <p class="product-overlay-name">Xanax White</p>
             <p class="product-overlay-desc">ja, ich denke schon.</p>
-            <p class="product-overlay-price">39 €</p>
-            <a href="#" class="product-overlay-btn">In den Shop →</a>
+            <p class="product-overlay-price" style="color:var(--flieder);">39 €</p>
+            <a href="https://www.der-onlineshop.com/products/xanax-for-the-panic-clean-white" target="_blank" class="product-overlay-btn" style="border-color:var(--flieder);">In den Shop →</a>
           </div>
         </div>
-        <div class="product-card">
+        <!-- XANAX PURPLE -->
+        <div class="product-card" style="cursor:pointer;" onclick="window.open('https://www.der-onlineshop.com/products/xanax-for-the-panic-violet','_blank')">
           <span class="product-label">New</span>
+          <div class="product-img-placeholder"><span class="placeholder-text">flieder</span></div>
+          <div class="product-overlay">
+            <p class="product-overlay-name">Xanax Flieder</p>
+            <p class="product-overlay-desc">ton in ton. fast unsichtbar. fast.</p>
+            <p class="product-overlay-price" style="color:var(--flieder);">39 €</p>
+            <a href="https://www.der-onlineshop.com/products/xanax-for-the-panic-violet" target="_blank" class="product-overlay-btn" style="border-color:var(--flieder);">In den Shop →</a>
+          </div>
+        </div>
+        <!-- HOODIE -->
+        <div class="product-card">
           <div class="product-img-placeholder"><span class="placeholder-text">hood</span></div>
           <div class="product-overlay">
             <p class="product-overlay-name">Hoodie</p>
             <p class="product-overlay-desc">ja, mal gucken wenn's kalt wird.</p>
-            <p class="product-overlay-price">79 €</p>
-            <a href="#" class="product-overlay-btn">In den Shop →</a>
+            <p class="product-overlay-price" style="color:var(--flieder);">79 €</p>
           </div>
         </div>
-        <div class="product-card">
-          <span class="product-label">Limited</span>
-          <div class="product-img-placeholder"><span class="placeholder-text">single</span></div>
+      </div>
+
+      <!-- ALLE PRODUKTE BOTTOM -->
+      <div style="text-align:center; margin-top:2rem;">
+        <a href="https://www.der-onlineshop.com/collections/vendors?q=why%20even%20try" target="_blank" class="btn-primary">alle produkte ansehen</a>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="drop-divider"></div>
+
+  <!-- ZERO FUCKS GIVEN -->
+  <section class="zfg-section" id="caps">
+    <div class="zfg-inner">
+      <div class="zfg-header">
+        <p class="section-label">kein drop. aber die cap geht immer.</p>
+        <h2>zero fucks given.</h2>
+        <p>sagt alles. ohne ein wort zu sagen.</p>
+      </div>
+      <div class="zfg-row">
+        <div class="zfg-card">
+          <img src="zero_fucks_given_cap_in_peach_front.png" alt="Cap Peach">
           <div class="product-overlay">
-            <p class="product-overlay-name">Single Piece</p>
-            <p class="product-overlay-desc">ja, immer wenn ich nicht prokrastiniere.</p>
-            <p class="product-overlay-price">ab 45 €</p>
-            <a href="#" class="product-overlay-btn">In den Shop →</a>
+            <p class="product-overlay-name">Cap Peach</p>
+            <p class="product-overlay-desc">ja, möglich.</p>
+            <p class="product-overlay-price">30 €</p>
+            <a href="https://www.der-onlineshop.com/products/zero-fucks-given-cap-peach" target="_blank" class="product-overlay-btn">In den Shop →</a>
+          </div>
+        </div>
+        <div class="zfg-card">
+          <img src="zero_fucks_given_cap_in_pastel_pink_front.png" alt="Cap Pastel Pink">
+          <div class="product-overlay">
+            <p class="product-overlay-name">Cap Pastel Pink</p>
+            <p class="product-overlay-desc">ja, möglich.</p>
+            <p class="product-overlay-price">30 €</p>
+            <a href="https://www.der-onlineshop.com/products/zero-fucks-given-cap-pastel-pink" target="_blank" class="product-overlay-btn">In den Shop →</a>
+          </div>
+        </div>
+        <div class="zfg-card">
+          <img src="zero_fucks_given_cap_in_pastel_mint_front.png" alt="Cap Pastel Mint">
+          <div class="product-overlay">
+            <p class="product-overlay-name">Cap Pastel Mint</p>
+            <p class="product-overlay-desc">ja, möglich.</p>
+            <p class="product-overlay-price">30 €</p>
+            <a href="https://www.der-onlineshop.com/products/zero-fucks-given-cap-pastel-mint" target="_blank" class="product-overlay-btn">In den Shop →</a>
+          </div>
+        </div>
+        <div class="zfg-card">
+          <img src="zero_fucks_given_cap_in_pastel_blue_front.png" alt="Cap Pastel Blue">
+          <div class="product-overlay">
+            <p class="product-overlay-name">Cap Pastel Blue</p>
+            <p class="product-overlay-desc">ja, möglich.</p>
+            <p class="product-overlay-price">30 €</p>
+            <a href="https://www.der-onlineshop.com/products/zero-fucks-given-cap-pastel-blue" target="_blank" class="product-overlay-btn">In den Shop →</a>
           </div>
         </div>
       </div>
@@ -808,8 +1037,6 @@
   </section>
 
   <div class="drop-divider"></div>
-
-  <!-- DROP 002 -->
   <section class="drop-section drop-002 drop-blurred" id="drop002">
     <div class="drop-inner" style="position:relative;">
       <div class="drop-header">
@@ -870,6 +1097,15 @@
       </div>
     </div>
   </section>
+
+  <!-- POSTCARD POPUP -->
+  <div class="postcard-trigger" id="postcardTrigger">
+    <div class="postcard-bubble" onclick="window.open('https://www.der-onlineshop.com/products/pille-palle-gum-postkarte','_blank')">
+      <button class="postcard-close" onclick="event.stopPropagation(); document.getElementById('postcardTrigger').style.display='none'">✕</button>
+      <img src="Pille_Palle_Gum_Postkarte.png" alt="Pille Palle Gum Postkarte">
+      <p class="postcard-label">coole postkarte gefällig?</p>
+    </div>
+  </div>
 
   <!-- SLOGANS -->
   <section class="slogans">
@@ -1034,6 +1270,8 @@
     window.addEventListener('scroll', () => {
       const backTop = document.querySelector('.back-to-top');
       if (backTop) backTop.classList.toggle('visible', window.scrollY > 400);
+      const postcard = document.getElementById('postcardTrigger');
+      if (postcard) postcard.classList.toggle('visible', window.scrollY > 800);
     });
   </script>
   <a href="#" class="back-to-top">↑</a>
